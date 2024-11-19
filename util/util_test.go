@@ -1,6 +1,7 @@
 package util
 
 import (
+	"strconv"
 	"testing"
 )
 
@@ -27,8 +28,15 @@ func TestIsPrime(t *testing.T) {
 	}
 }
 
+// BenchmarkIsPrime benchmarks the IsPrime function for multiple primes.
 func BenchmarkIsPrime(b *testing.B) {
-	for i := 0; i < b.N; i++ {
-		IsPrime(7919) // A large prime number for testing.
+	primes := []int{2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47}
+	for _, prime := range primes {
+		// Use strconv.Itoa to convert the integer to string for naming the benchmark
+		b.Run("Prime_"+strconv.Itoa(prime), func(b *testing.B) {
+			for i := 0; i < b.N; i++ {
+				IsPrime(prime)
+			}
+		})
 	}
 }
