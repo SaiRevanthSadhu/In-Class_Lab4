@@ -71,6 +71,28 @@ func TestSumOfSlice(t *testing.T) {
 	}
 }
 
+func TestFactorial(t *testing.T) {
+	testCases := []struct {
+		name     string
+		input    int
+		expected int
+	}{
+		{"Negative number", -3, -1},
+		{"Zero", 0, 1},
+		{"One", 1, 1},
+		{"Small number", 5, 120},
+	}
+
+	for _, tc := range testCases {
+		t.Run(tc.name, func(t *testing.T) {
+			result := Factorial(tc.input)
+			if result != tc.expected {
+				t.Errorf("expected %v, got %v", tc.expected, result)
+			}
+		})
+	}
+}
+
 // BenchmarkIsPrime benchmarks the IsPrime function for multiple primes.
 func BenchmarkIsPrime(b *testing.B) {
 	primes := []int{2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47}
