@@ -8,4 +8,5 @@ import (
 
 func main() {
 	fmt.Println("Is 7 prime?", util.IsPrime(7))
+	fmt.Println("Reverse of 'hello':", util.ReverseString("hello"))
 }
