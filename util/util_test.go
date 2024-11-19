@@ -112,3 +112,19 @@ func BenchmarkReverseString(b *testing.B) {
 		ReverseString(str)
 	}
 }
+
+func BenchmarkSumOfSlice(b *testing.B) {
+	nums := make([]int, 1000)
+	for i := range nums {
+		nums[i] = i
+	}
+	for i := 0; i < b.N; i++ {
+		SumOfSlice(nums)
+	}
+}
+
+func BenchmarkFactorial(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		Factorial(10)
+	}
+}
