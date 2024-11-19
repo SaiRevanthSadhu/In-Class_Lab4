@@ -21,3 +21,12 @@ func ReverseString(s string) string {
 	}
 	return string(runes)
 }
+
+// SumOfSlice returns the sum of all integers in a slice.
+func SumOfSlice(nums []int) int {
+	sum := 0
+	for _, num := range nums {
+		sum += num
+	}
+	return sum
+}

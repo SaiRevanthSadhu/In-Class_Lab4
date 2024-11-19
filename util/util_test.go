@@ -49,6 +49,27 @@ func TestReverseString(t *testing.T) {
 		})
 	}
 }
+func TestSumOfSlice(t *testing.T) {
+	testCases := []struct {
+		name     string
+		input    []int
+		expected int
+	}{
+		{"Empty slice", []int{}, 0},
+		{"Single element", []int{5}, 5},
+		{"Multiple elements", []int{1, 2, 3, 4}, 10},
+		{"Negative numbers", []int{-1, -2, -3}, -6},
+	}
+
+	for _, tc := range testCases {
+		t.Run(tc.name, func(t *testing.T) {
+			result := SumOfSlice(tc.input)
+			if result != tc.expected {
+				t.Errorf("expected %v, got %v", tc.expected, result)
+			}
+		})
+	}
+}
 
 // BenchmarkIsPrime benchmarks the IsPrime function for multiple primes.
 func BenchmarkIsPrime(b *testing.B) {
